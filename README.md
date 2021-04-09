@@ -85,23 +85,3 @@ dog
 ...
 ```
 8. 运行train.py即可开始训练。
-
-## 评估步骤
-评估过程可参考视频https://www.bilibili.com/video/BV1zE411u7Vw  
-步骤是一样的，不需要自己再建立get_dr_txt.py、get_gt_txt.py等文件。  
-1. 本文使用VOC格式进行评估。  
-2. 评估前将标签文件放在VOCdevkit文件夹下的VOC2007文件夹下的Annotation中。  
-3. 评估前将图片文件放在VOCdevkit文件夹下的VOC2007文件夹下的JPEGImages中。  
-4. 在评估前利用voc2yolo3.py文件生成对应的txt，评估用的txt为VOCdevkit/VOC2007/ImageSets/Main/test.txt，需要注意的是，如果整个VOC2007里面的数据集都是用于评估，那么直接将trainval_percent设置成0即可。  
-5. 在yolo.py文件里面，在如下部分修改model_path和classes_path使其对应训练好的文件；**model_path对应logs文件夹下面的权值文件，classes_path是model_path对应分的类**。  
-6. 运行get_dr_txt.py和get_gt_txt.py，在./input/detection-results和./input/ground-truth文件夹下生成对应的txt。  
-7. 运行get_map.py即可开始计算模型的mAP。
-
-## mAP目标检测精度计算更新
-更新了get_gt_txt.py、get_dr_txt.py和get_map.py文件。  
-get_map文件克隆自https://github.com/Cartucho/mAP  
-具体mAP计算过程可参考：https://www.bilibili.com/video/BV1zE411u7Vw
-
-## Reference
-https://github.com/qqwweee/keras-yolo3/  
-https://github.com/Cartucho/mAP
